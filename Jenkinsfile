@@ -47,11 +47,11 @@ pipeline{
                   script{
 		 sh 'cp -r ../devops-training@2/target .'
                    sh 'docker build . -t deekshithsn/devops-training:$Docker_tag'
-		   withCredentials([string(credentialsId: 'docker_password', variable: 'docker_password')]) {
-				    
-				  sh 'docker login -u deekshithsn -p $docker_password'
-				  sh 'docker push deekshithsn/devops-training:$Docker_tag'
-			}
+		   withCredentials([string(credentialsId: '3806437c-0faa-4bc6-a89d-dc1b5da29e8a', variable: 'docker_password')]) {
+			    sh 'docker login -u appasaheb3 -p $docker_password'
+				  sh 'docker push appasaheb3/devops-training:$Docker_tag'
+		   }
+		   
                        }
                     }
                  }
